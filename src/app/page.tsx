@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import CountdownTimer from '@/components/CountdownTimer';
@@ -14,7 +14,27 @@ import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  // Handle initial mount state
   useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Skip if still loading or not mounted yet
+    if (isLoading || !hasMounted) return;
+    
     // Implement intersection observer for revealing animations
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,19 +47,34 @@ const Home = () => {
       { threshold: 0.1 }
     );
 
-    // Observe all elements with reveal-animation class
+    // Safely access DOM only after client-side hydration is complete
     const animatedElements = document.querySelectorAll('.reveal-animation');
     animatedElements.forEach((el) => {
       observer.observe(el);
     });
 
     return () => {
-      animatedElements.forEach((el) => {
-        observer.unobserve(el);
-      });
+      if (observer) {
+        animatedElements.forEach((el) => {
+          observer.unobserve(el);
+        });
+      }
     };
-  }, []);
+  }, [isLoading, hasMounted]);
 
+  // During server-side rendering or initial client render, show the loading state
+  if (!hasMounted || isLoading) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="spinner">
+          <div className="double-bounce1"></div>
+          <div className="double-bounce2"></div>
+        </div>
+      </div>
+    );
+  }
+
+  // Only render the full content after mounting on client
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />

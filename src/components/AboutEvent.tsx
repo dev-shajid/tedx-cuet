@@ -73,10 +73,10 @@ const AboutEvent = () => {
     <section id="about" className="section-padding bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 reveal-animation">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 heading-gradient">
+          <h2 className="title">
             About TEDxCUET
           </h2>
-          <p className="text-white/70 max-w-3xl mx-auto">
+          <p className="subtitle">
             A day of engaging talks, innovative ideas, and meaningful connections at Chittagong University of Engineering & Technology.
           </p>
         </div>
@@ -120,18 +120,6 @@ const AboutEvent = () => {
               <p className="text-white/70">{feature.description}</p>
             </div>
           ))}
-        </div>
-        
-        <div className="mt-16 flex justify-center reveal-animation">
-          <div className="glass-card p-6 rounded-xl max-w-3xl">
-            <div className="flex items-center mb-4">
-              <div className="w-1 h-6 bg-tedred mr-4"></div>
-              <h3 className="text-xl font-bold text-white">Theme: "Innovation for Sustainable Future"</h3>
-            </div>
-            <p className="text-white/70">
-              At TEDxCUET 2024, we explore how innovative thinking and technology can help us build a more sustainable future. From climate solutions to ethical AI, our speakers will share groundbreaking ideas that can transform how we live and interact with our planet.
-            </p>
-          </div>
         </div>
       </div>
     </section>

@@ -146,10 +146,10 @@ const EventSchedule = () => {
     <section id="schedule" className="section-padding bg-black relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="title">
             Event Schedule
           </h2>
-          <p className="text-white/70 max-w-3xl mx-auto">
+          <p className="subtitle">
             Plan your day at TEDxCUET with our comprehensive event schedule.
           </p>
         </div>

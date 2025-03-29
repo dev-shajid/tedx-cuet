@@ -50,10 +50,10 @@ const SpeakersSection = () => {
     <section id="speakers" className="section-padding bg-zinc-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16 reveal-animation">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 heading-gradient">
+          <h2 className="title">
             Featured Speakers
           </h2>
-          <p className="text-white/70 max-w-3xl mx-auto">
+          <p className="subtitle">
             Meet our distinguished speakers who will share their groundbreaking ideas and inspiring stories at TEDxCUET.
           </p>
         </div>

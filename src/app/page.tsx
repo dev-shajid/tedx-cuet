@@ -12,6 +12,7 @@ import Partners from '@/components/Partners';
 import VenueSection from '@/components/VenueSection';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
+import { Loader2 } from 'lucide-react';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,7 +35,7 @@ const Home = () => {
   useEffect(() => {
     // Skip if still loading or not mounted yet
     if (isLoading || !hasMounted) return;
-    
+
     // Implement intersection observer for revealing animations
     const observer = new IntersectionObserver(
       (entries) => {
@@ -65,11 +66,8 @@ const Home = () => {
   // During server-side rendering or initial client render, show the loading state
   if (!hasMounted || isLoading) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <div className="spinner">
-          <div className="double-bounce1"></div>
-          <div className="double-bounce2"></div>
-        </div>
+      <div className='min-h-screen bg-black text-white flex items-center justify-center'>
+        <Loader2 className='size-8 animate-spin' />
       </div>
     );
   }

@@ -78,7 +78,7 @@ const Partners = () => {
             Our Trusted Partners
           </h2>
           <p className="subtitle">
-            We're grateful to these amazing organizations for making TEDxCUET possible and helping us spread ideas worth sharing.
+            We&apos;re grateful to these amazing organizations for making TEDxCUET possible and helping us spread ideas worth sharing.
           </p>
         </div>
 

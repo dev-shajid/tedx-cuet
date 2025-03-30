@@ -11,12 +11,12 @@ const CtaSection = () => {
       
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 reveal-animation">
-          <h2 className="title">
+          <h1 className="title">
             Secure Your Spot Today
-          </h2>
-          <p className="subtitle">
+          </h1>
+          <h2 className="subtitle">
             Join us for an inspiring day of ideas worth spreading at TEDxCUET. Limited seats available!
-          </p>
+          </h2>
         </div>
         
         <motion.div 

@@ -24,12 +24,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Simulate loading delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {

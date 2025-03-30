@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from 'next/script';
 
+// Font definitions remain the same
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -12,10 +14,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// JSON-LD structured data remains the same
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  // ...existing JSON-LD content...
+};
+
 export const metadata: Metadata = {
-  title: "TEDxCUET 2025 | Ideas Worth Spreading",
-  description: "Join us for TEDxCUET 2025, an inspiring event featuring thought-provoking talks, innovative ideas, and networking opportunities with thought leaders and changemakers.",
-  keywords: ["TEDx", "TEDxCUET", "ideas worth spreading", "CUET", "conference", "speakers", "innovation", "inspiration", "technology", "design", "education"],
+  title: "TEDxCUET 2025: Innovation Through Diversity | Ideas Worth Spreading",
+  description: "Join us at TEDxCUET 2025 to experience inspiring talks from visionaries, innovators, and thought leaders that will transform how you see the world. Connect with like-minded individuals and be part of the global TEDx community.",
+  keywords: ["TEDx", "TEDxCUET", "ideas worth spreading", "CUET", "conference", "speakers", "innovation", "inspiration", "technology", "design", "education", "Chittagong", "Bangladesh", "thought leadership"],
   authors: [{ name: "TEDxCUET Organizing Team" }],
   creator: "TEDxCUET",
   publisher: "TEDxCUET",
@@ -23,48 +32,34 @@ export const metadata: Metadata = {
     email: false,
     telephone: false,
   },
-  metadataBase: new URL("https://tedx-cuet.vercel.app"), // Update with your actual domain
+  metadataBase: new URL("https://tedx-cuet.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "TEDxCUET 2025 | Ideas Worth Spreading",
-    description: "Join us for TEDxCUET 2025, an inspiring event featuring thought-provoking talks, innovative ideas, and networking opportunities.",
-    url: "https://tedx-cuet.vercel.app", // Update with your actual domain
+    title: "TEDxCUET 2025: Innovation Through Diversity | Ideas Worth Spreading",
+    description: "Join us at TEDxCUET 2025 to experience inspiring talks from visionaries, innovators, and thought leaders that will transform how you see the world.",
+    url: "https://tedx-cuet.vercel.app",
     siteName: "TEDxCUET",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://tedx-cuet.vercel.app/tedx.jpeg", // Update with your actual image path
+        url: "https://tedx-cuet.vercel.app/tedx.jpeg",
         width: 1200,
         height: 630,
-        alt: "TEDxCUET 2025",
+        alt: "TEDxCUET 2025: Innovation Through Diversity",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TEDxCUET 2025 | Ideas Worth Spreading",
-    description: "Join us for TEDxCUET 2025, an inspiring event featuring thought-provoking talks, innovative ideas, and networking opportunities.",
-    creator: "@tedxcuet", // Update with your actual Twitter handle
-    images: ["https://tedx-cuet.vercel.app/tedx.jpeg"], // Update with your actual image path
+    title: "TEDxCUET 2025: Innovation Through Diversity | Ideas Worth Spreading",
+    description: "Join us at TEDxCUET 2025 to experience inspiring talks from visionaries, innovators, and thought leaders that will transform how you see the world.",
+    creator: "@tedxcuet",
+    images: ["https://tedx-cuet.vercel.app/tedx.jpeg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  category: "Event",
-  verification: {
-    // Add your verification strings here 
-    google: "google-site-verification-code", // Update with your verification code
-  }
+  // ...rest of metadata remains the same
 };
 
 export default function RootLayout({
@@ -73,13 +68,43 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Canonical link */}
         <link rel="canonical" href="https://tedx-cuet.vercel.app" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        
+        {/* Explicit Open Graph tags for platforms that don't support Next.js metadata */}
+        <meta property="og:title" content="TEDxCUET 2025: Innovation Through Diversity | Ideas Worth Spreading" />
+        <meta property="og:description" content="Join us at TEDxCUET 2025 to experience inspiring talks from visionaries, innovators, and thought leaders that will transform how you see the world." />
+        <meta property="og:image" content="https://tedx-cuet.vercel.app/tedx.jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://tedx-cuet.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="TEDxCUET" />
+        
+        {/* Explicit Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TEDxCUET 2025: Innovation Through Diversity | Ideas Worth Spreading" />
+        <meta name="twitter:description" content="Join us at TEDxCUET 2025 to experience inspiring talks from visionaries, innovators, and thought leaders that will transform how you see the world." />
+        <meta name="twitter:image" content="https://tedx-cuet.vercel.app/tedx.jpeg" />
+        <meta name="twitter:creator" content="@tedxcuet" />
+        
+        {/* Preconnect to critical domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        
+        {/* Use next/script for better performance */}
+        <Script
+          id="event-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
       </body>

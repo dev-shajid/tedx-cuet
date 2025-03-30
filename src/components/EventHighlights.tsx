@@ -22,12 +22,12 @@ const EventHighlights = () => {
     <section id="highlights" className="section-padding bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 reveal-animation">
-          <h2 className="title">
+          <h1 className="title">
             Event Highlights
-          </h2>
-          <p className="subtitle">
+          </h1>
+          <h2 className="subtitle">
             Watch highlights from our previous events and get a glimpse of what to expect at TEDxCUET 2025.
-          </p>
+          </h2>
         </div>
 
         <div className="max-w-4xl mx-auto reveal-animation">

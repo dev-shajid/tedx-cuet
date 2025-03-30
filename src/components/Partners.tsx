@@ -74,12 +74,12 @@ const Partners = () => {
     <section id="partners" className="section-padding bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 reveal-animation">
-          <h2 className="title">
+          <h1 className="title">
             Our Trusted Partners
-          </h2>
-          <p className="subtitle">
+          </h1>
+          <h2 className="subtitle">
             We&apos;re grateful to these amazing organizations for making TEDxCUET possible and helping us spread ideas worth sharing.
-          </p>
+          </h2>
         </div>
 
         {/* Platinum Sponsors */}

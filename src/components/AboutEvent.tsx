@@ -74,12 +74,12 @@ const AboutEvent = () => {
     <section id="about" className="section-padding bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 reveal-animation">
-          <h2 className="title">
+          <h1 className="title">
             About TEDxCUET
-          </h2>
-          <p className="subtitle">
+          </h1>
+          <h2 className="subtitle">
             A day of engaging talks, innovative ideas, and meaningful connections at Chittagong University of Engineering & Technology.
-          </p>
+          </h2>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 items-center mb-16">

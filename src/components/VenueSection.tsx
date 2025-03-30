@@ -6,12 +6,12 @@ const VenueSection = () => {
     <section id="venue" className="section-padding bg-zinc-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 reveal-animation">
-          <h2 className="title">
+          <h1 className="title">
             Event Venue
-          </h2>
-          <p className="subtitle">
+          </h1>
+          <h2 className="subtitle">
             Join us at our carefully selected venue for an immersive TEDx experience.
-          </p>
+          </h2>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">

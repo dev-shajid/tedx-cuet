@@ -46,9 +46,9 @@ const CountdownTimer = () => {
   return (
     <section className="bg-black py-16 relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-2xl md:text-3xl font-bold mb-12 heading-gradient animate-fade-in">
+        <h1 className="text-center text-2xl md:text-3xl font-bold mb-12 heading-gradient animate-fade-in">
           EVENT COUNTDOWN
-        </h2>
+        </h1>
         
         <div className="flex flex-wrap justify-center gap-6 md:gap-10">
           {timeBlocks.map((block, index) => {
